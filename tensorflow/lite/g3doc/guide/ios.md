@@ -1,41 +1,37 @@
-# iOS quickstart
+ios快速入门指南
 
-To get started with TensorFlow Lite on iOS, we recommend exploring the following
-example:
+为了能在IOS系统上开发TF Lite，我们推荐您先浏览以下内容
+举个栗子：
 
 <a class="button button-primary" href="https://github.com/tensorflow/examples/tree/master/lite/examples/image_classification/ios">iOS
 image classification example</a>
 
-For an explanation of the source code, you should also read
+如果你想了解一些关于源码的说明，你还需阅读
 [TensorFlow Lite iOS image classification](https://www.tensorflow.org/lite/models/image_classification/ios).
 
-This example app uses
-[image classification](https://www.tensorflow.org/lite/models/image_classification/overview)
-to continuously classify whatever it sees from the device's rear-facing camera,
-displaying the top most probable classifications. It allows the user to choose
-between a floating point or
-[quantized](https://www.tensorflow.org/lite/performance/post_training_quantization)
-model and select the number of threads to perform inference on.
+这些示例APP使用[image classification](https://www.tensorflow.org/lite/models/image_classification/overview)
+连续不断地将后置摄像头的图像进行分类，并显示最有可能的分类。
+它允许用户在浮点或者[quantized](https://www.tensorflow.org/lite/performance/post_training_quantization)
+模型中选择然后挑选选择要对其执行推理的线程数。
 
-Note: Additional iOS applications demonstrating TensorFlow Lite in a variety of
-use cases are available in [Examples](https://www.tensorflow.org/lite/examples).
+笔记：其他IOS应用在[Examples](https://www.tensorflow.org/lite/examples)中展示了
+非常多的可实施方案。
 
-## Add TensorFlow Lite to your Swift or Objective-C project
+##向Objective-C或者Swift项目中添加TensorFlow Lite
 
-TensorFlow Lite offers native iOS libraries written in
+TensorFlow Lite提供了用
 [Swift](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/experimental/swift)
-and
+和
 [Objective-C](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/experimental/objc).
-To get started quickly writing your own iOS code, we recommend using our
+写的一些本地化库，如此你可以快速上手书写你的IOS代码，我们推荐使用
 [Swift image classification example](https://github.com/tensorflow/examples/tree/master/lite/examples/image_classification/ios)
-as a starting point.
+作为起始点。
 
-The sections below demonstrate how to add TensorFlow Lite Swift or Objective-C
-to your project:
+下面这部分展示了如何向你的项目中添加TensorFlow Lite Swift或者Objective-C
 
-### CocoaPods developers
+### CocoaPods开发者
 
-In your `Podfile`, add the TensorFlow Lite pod. Then, run `pod install`.
+在Podfile中添加TensorFlow Lite pod然后运行`pod install`
 
 #### Swift
 
@@ -50,12 +46,10 @@ pod 'TensorFlowLiteSwift'
 pod 'TensorFlowLiteObjC'
 ```
 
-### Bazel developers
-
-In your `BUILD` file, add the `TensorFlowLite` dependency to your target.
+### Bazel 开发者
+在你的BUILD文件中，添加“TensorFlowLite”依赖项到target中
 
 #### Swift
-
 ```python
 swift_library(
   deps = [
@@ -65,7 +59,6 @@ swift_library(
 ```
 
 #### Objective-C
-
 ```python
 objc_library(
   deps = [
@@ -74,25 +67,25 @@ objc_library(
 )
 ```
 
-### Import the library
+### 导入库
 
-For Swift files, import the TensorFlow Lite module:
+对于Swift文件，输入TF Lite模块：
 
 ```swift
 import TensorFlowLite
 ```
 
-For Objective-C files, import the umbrella header:
+对于Objective-C文件，输入umbrella header：
 
 ```objectivec
 #import "TFLTensorFlowLite.h"
 ```
 
-Or, the module if you set `CLANG_ENABLE_MODULES = YES` in your Xcode project:
+或者，如果你在Xcode项目中设置了`CLANG_ENABLE_MODULES = YES` 则输入以下模块：
 
 ```objectivec
 @import TFLTensorFlowLite;
 ```
 
-Note: For CocoaPods developers who want to import the Objective-C TensorFlow
-Lite module, you must also include `use_frameworks!` in your `Podfile`.
+笔记：对于 CocoaPods开发者如果你想导入Objective-C TensorFlow Lite模块
+必须保证`Podfile`中包括了 `use_frameworks!`头文件
